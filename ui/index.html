@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css"/>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>This is not stinky</h1>
+    <img src="https://t4.ftcdn.net/jpg/07/71/17/11/360_F_771171175_4hD5F0gFznDfudqIolxHo7If0qa1D6Za.jpg">
+    <div id="numberAdded"></div>
+    <script>
+        const {invoke} = window.__TAURI__.tauri
+
+        invoke('addTwo', {num1: 100, num2: 696})
+        .then((response) => {
+            const numAdded = document.getElementById('numberAdded');
+            numAdded.innerHTML = response;
+        })
+    </script>
+  </body>
+</html>
